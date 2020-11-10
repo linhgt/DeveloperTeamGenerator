@@ -12,6 +12,71 @@ const render = require("./lib/htmlRenderer");
 
 //render.renderMain("./templates");
 
+//an array that holds the employee objects created
+const finalTeam = []
+
+//A short prompt that asks the user for information about the employee
+const prompt = () => inquirer.prompt([
+    {
+        //Type of employee
+        type:"list",
+        message:"What type of employee do you want to add?",
+        name:"type",
+        choices:["Engineer", "Intern", "Manager"]
+    },
+    {
+        //Name of the employee
+        type:"input",
+        message:"What is the name of the employee?",
+        name:"name"
+    },
+    {
+        //Id of the employee
+        type:"input",
+        message:"What is the id of the employee",
+        name:"id"
+    },
+    {
+        //Email of the employee
+        type:"input",
+        message:"What is the email of the employee",
+        name:"email"
+    },
+    {
+        //If the employee is an engineer
+        //Ask for the github username
+        type:"input",
+        message:"What is the github username of the engineer?",
+        name:"username",
+        when: function(answer) {return answer.type ==="Engineer"}
+    },
+    {
+        //If the employee is an intern
+        //Ask for the school of the intern
+        type:"input",
+        message:"What is the school of the Intern?",
+        name:"school",
+        when: function(answer) {return answer.type ==="Intern"}
+    },
+    {
+        //If the employee is a manager
+        //Ask for the office number
+        type:"input",
+        message:"What is the office number of the manager?",
+        name:"officeNumber",
+        when: function(answer) {return answer.type ==="Manager"}
+    },
+    {
+        //If user wants to add another employee
+        type:"confirm",
+        message:"Would you like to add another employee?",
+        name:"add"
+    }
+]).then(function(response){
+    //If the employee entered is an engineer
+});
+
+prompt();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
