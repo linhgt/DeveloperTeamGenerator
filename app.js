@@ -74,6 +74,45 @@ const prompt = () => inquirer.prompt([
     }
 ]).then(function(response){
     //If the employee entered is an engineer
+    if(response.type === "Engineer")
+    {
+        const engineer = new Engineer(response.name, response.id, response.email, response.username);
+        finalTeam.push(engineer);
+    }
+
+    //If the employee entered is an intern
+    else if(response.type === "Intern")
+    {
+        const intern = new Intern(response.name, response.id, response.email, response.school);
+        finalTeam.push(intern);
+    }
+    
+    //If the employee entered is a manager
+    else if(response.type === "Manager")
+    {
+        const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+        finalTeam.push(manager);
+    }
+
+    //If user wants to add another employee
+    if(response.confirm === true)
+    {
+        prompt();
+    }
+
+    //Else write the html page based on the employees entered
+    else{
+        fs.writeFile(outputPath, render(finalTeam), (err) =>{
+            if (err)
+            {
+                throw err;
+            }
+            else{
+                console.log("successfully rendered the html");
+            }
+        });
+    }
+
 });
 
 prompt();
