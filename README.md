@@ -24,3 +24,5 @@ The visual of the rendered page is being updated
 ## Technologies
 
 ![html](https://img.shields.io/badge/HTML-red)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-blue)
+![Nodejs](https://img.shields.io/badge/Nodejs-black)
