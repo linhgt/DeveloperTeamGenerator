@@ -95,7 +95,7 @@ const prompt = () => inquirer.prompt([
     }
 
     //If user wants to add another employee
-    if(response.confirm === "Yes")
+    if(response.add)
     {
         prompt();
     }
