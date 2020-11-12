@@ -33,13 +33,13 @@ const prompt = () => inquirer.prompt([
     {
         //Id of the employee
         type:"input",
-        message:"What is the id of the employee",
+        message:"What is the id of the employee?",
         name:"id"
     },
     {
         //Email of the employee
         type:"input",
-        message:"What is the email of the employee",
+        message:"What is the email of the employee?",
         name:"email"
     },
     {
@@ -95,7 +95,7 @@ const prompt = () => inquirer.prompt([
     }
 
     //If user wants to add another employee
-    if(response.confirm === "yes")
+    if(response.confirm === "Yes")
     {
         prompt();
     }
